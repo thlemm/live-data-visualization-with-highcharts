@@ -1,30 +1,30 @@
 <template>
   <v-layout>
     <v-container>
-      <highcharts :options="chartOptions" ref="scatterplot" />
+      <highcharts ref="scatterplot" :options="chartOptions" />
     </v-container>
   </v-layout>
 </template>
 
 <script>
-import {Chart} from 'highcharts-vue'
+import { Chart } from 'highcharts-vue'
 
 export default {
   components: {
-    highcharts: Chart 
+    highcharts: Chart
   },
   props: {
     scatterData: {
       type: Array,
       required: false,
-      default: function () {
+      default () {
         return []
       }
     },
     lineData: {
       type: Array,
       required: false,
-      default: function () {
+      default () {
         return []
       }
     },
@@ -46,10 +46,10 @@ export default {
           height: 370
         },
         title: {
-            text: ''
+          text: ''
         },
         subtitle: {
-            text: ''
+          text: ''
         },
         xAxis: {
           title: {
@@ -101,16 +101,16 @@ export default {
           },
           line: {
             marker: {
-              "enabled": false
-            },
+              enabled: false
+            }
           }
         },
         series: [{
           type: 'line',
           showInLegend: false,
           color: '#559b8e',
-          data: [{ x: 0, y: 0, id: 'id-0'},{ x: 0, y: 0, id: 'id-1'}]
-        },{
+          data: [{ x: 0, y: 0, id: 'id-0' }, { x: 0, y: 0, id: 'id-1' }]
+        }, {
           type: 'scatter',
           showInLegend: false,
           color: 'rgba(223, 83, 83, .5)',
@@ -119,21 +119,12 @@ export default {
       }
     }
   },
-  mounted () {
-  },
   watch: {
     lineData () {
-      this.$refs["scatterplot"].chart.series[0].setData(this.lineData, true, true, true);
+      this.$refs.scatterplot.chart.series[0].setData(this.lineData, true, true, true)
     },
     scatterData () {
-      this.$refs["scatterplot"].chart.series[1].setData(this.scatterData, true, true, true);
-    }
-  },
-  methods: {
-    update () {
-      // console.log(this.$refs["histogram"].chart)
-      // this.$refs["histogram"].chart.xAxis[0].options.plotLines[0].value = 0.5
-      // this.$refs["histogram"].chart.xAxis[0].update()
+      this.$refs.scatterplot.chart.series[1].setData(this.scatterData, true, true, true)
     }
   }
 }

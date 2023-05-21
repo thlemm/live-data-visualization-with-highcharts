@@ -1,32 +1,32 @@
 <template>
   <v-layout>
     <v-container>
-      <highcharts :constructor-type="'mapChart'" :options="mapOptions" class="map" ref="map" />
+      <highcharts ref="map" :constructor-type="'mapChart'" :options="mapOptions" class="map" />
     </v-container>
   </v-layout>
 </template>
 
 <script>
-import {Chart} from 'highcharts-vue'
+import { Chart } from 'highcharts-vue'
+import Highcharts from 'highcharts'
 import json from '@/static/taxi_zones.json'
-import Highcharts from "highcharts"
 
 export default {
   components: {
-    highcharts: Chart 
+    highcharts: Chart
   },
   props: {
     moranData: {
       type: Array,
       required: false,
-      default: function () {
+      default () {
         return []
       }
     },
     pvaluesLocal: {
       type: Array,
       required: false,
-      default: function () {
+      default () {
         return []
       }
     }
@@ -42,41 +42,37 @@ export default {
           height: 722
         },
         title: {
-            text: ''
+          text: ''
         },
         subtitle: {
-            text: ''
+          text: ''
         },
         mapNavigation: {
           enabled: true,
           buttonOptions: {
-              verticalAlign: 'bottom'
+            verticalAlign: 'bottom'
           }
         },
         colorAxis: {
-            min: -5,
-            max: 20,
-            tickInterval: 2,
-            //tickPositions: [-5, 20],
-            // minColor: '#F6ECEE',
-            // maxColor: '#A80422',
-            stops: [[0, '#006165'], [0.16, '#639D9F'], [0.225, '#f7f7f7'], [0.28, '#C7949C'], [0.4, '#B0636E'], [0.6, '#983141'], [1, '#800013']],
-            // stops: [[0, '#20594E'], [0.16, '#769892'], [0.225, '#f7f7f7'], [0.28, '#D19C9B'], [0.4, '#BD6E6D'], [0.6, '#AA413F'], [1, '#971311']],
-            labels: {
-                format: '{value}'
-            }
+          min: -5,
+          max: 20,
+          tickInterval: 2,
+          stops: [[0, '#006165'], [0.16, '#639D9F'], [0.225, '#f7f7f7'], [0.28, '#C7949C'], [0.4, '#B0636E'], [0.6, '#983141'], [1, '#800013']],
+          labels: {
+            format: '{value}'
+          }
         },
         legend: {
-            title: {
-                text: 'Lokaler erweiterter Moran-Koeffizient',
-                style: 'serif'
-            },
-            align: 'right',
-            verticalAlign: 'top',
-            y: 600,
-            floating: true,
-            borderWidth: 0,
-            backgroundColor: 'white'
+          title: {
+            text: 'Lokaler erweiterter Moran-Koeffizient',
+            style: 'serif'
+          },
+          align: 'right',
+          verticalAlign: 'top',
+          y: 600,
+          floating: true,
+          borderWidth: 0,
+          backgroundColor: 'white'
         },
         tooltip: {
           headerFormat: '<b>LISA</b><br>',
@@ -84,7 +80,7 @@ export default {
         },
         series: [{
           mapData: Highcharts.geojson(json),
-          data: [[1, 0],[15, 0.5],[16, 4],[17, 10],[18, 15],[19, -2]],
+          data: [[1, 0], [15, 0.5], [16, 4], [17, 10], [18, 15], [19, -2]],
           // data: [{LocationID: 1, value: 0.5},{LocationID: 15, value: 1},{LocationID: 16, value: 3},{LocationID: 17, value: 5}],
           keys: ['LocationID', 'value'],
           joinBy: 'LocationID',
@@ -100,7 +96,7 @@ export default {
   },
   watch: {
     moranData () {
-      this.$refs["map"].chart.series[0].setData(this.moranData, false, true, true)
+      this.$refs.map.chart.series[0].setData(this.moranData, false, true, true)
 
       // var i
       // for (i=0; i<263; i++) {
@@ -108,7 +104,7 @@ export default {
       //     this.updateBorder(i)
       //   }
       // }
-      this.$refs["map"].chart.redraw()
+      this.$refs.map.chart.redraw()
     }
   },
   mounted () {
@@ -119,10 +115,10 @@ export default {
   },
   methods: {
     updateBorder (val) {
-      this.$refs["map"].chart.series[0].data[val].update({
+      this.$refs.map.chart.series[0].data[val].update({
         borderWidth: 0.5,
         borderColor: '#000000'
-        }, false)
+      }, false)
     }
   }
 }
