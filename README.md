@@ -18,3 +18,8 @@ The data is pushed to the charts via a websocket. In this example the websocket 
 Here you can see the dashboard visualizing the analysis results for a spatio-temporal autocorrelation index.
 
 ![Dashboard overview](/assets/dashboard-overview.png)
+
+
+## Prerequisites
+
+Requires Node.js v16 or higher.

@@ -1,10 +1,9 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
+  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - live-data-visualization',
-    title: 'live-data-visualization',
+    title: 'Live data visualization',
     htmlAttrs: {
       lang: 'en'
     },
@@ -34,13 +33,13 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -53,26 +52,17 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary:                   '#37b9a1',
-          primaryNeutral:            '#559b8e',
-          primaryNeutralLight:       '#c4dfda',
-          primaryLight:              '#7eccbe',
-          primaryNeutralDark:        '#1d3530',
-          complementary:             '#ca2644',
-          complementaryNeutralDark:  '#381a1f', 
-          complementaryLight:        '#d67385',
+          primary: '#37b9a1',
+          primaryNeutral: '#559b8e',
+          primaryNeutralLight: '#c4dfda',
+          primaryLight: '#7eccbe',
+          primaryNeutralDark: '#1d3530',
+          complementary: '#ca2644',
+          complementaryNeutralDark: '#381a1f',
+          complementaryLight: '#d67385',
           complementaryNeutralLight: '#e2c0c6',
-          complementaryNeutral:      '#a44c5c',
+          complementaryNeutral: '#a44c5c',
           error: '#ca2644'
-        },
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
         }
       }
     }
