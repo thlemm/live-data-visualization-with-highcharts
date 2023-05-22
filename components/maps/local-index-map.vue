@@ -96,7 +96,8 @@ export default {
   },
   watch: {
     moranData () {
-      this.$refs.map.chart.series[0].setData(this.moranData, false, true, true)
+      // eslint-disable-next-line dot-notation
+      this.$refs['map'].chart.series[0].setData(this.moranData, false, true, true)
 
       // var i
       // for (i=0; i<263; i++) {
@@ -104,7 +105,8 @@ export default {
       //     this.updateBorder(i)
       //   }
       // }
-      this.$refs.map.chart.redraw()
+      // eslint-disable-next-line dot-notation
+      this.$refs['map'].chart.redraw()
     }
   },
   mounted () {
@@ -115,7 +117,8 @@ export default {
   },
   methods: {
     updateBorder (val) {
-      this.$refs.map.chart.series[0].data[val].update({
+      // eslint-disable-next-line dot-notation
+      this.$refs['map'].chart.series[0].data[val].update({
         borderWidth: 0.5,
         borderColor: '#000000'
       }, false)

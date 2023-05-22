@@ -1,6 +1,6 @@
 # Live data visualization with highcharts.js
 
-This project is a simple example for a web-based dashboard to visualize spatial and statistical data. It uses  as Framework and [Highcharts](https://www.highcharts.com/) to produce interactive and dynamic charts and maps. The data is pushed to the dashboard from an [Apache Kafka](https://kafka.apache.org/) topic via websocket.
+This project is a simple example for a web-based dashboard to visualize spatial and statistical data. It uses [Nuxt.js](https://v2.nuxt.com/)  as Framework and [Highcharts](https://www.highcharts.com/) to produce interactive and dynamic charts and maps. The data is pushed to the dashboard from an [Apache Kafka](https://kafka.apache.org/) topic via websocket.
 
 I used this approach to visualize processing results from my project: **[spatio-temporal-autocorrelation-with-apache-flink](https://github.com/thlemm/spatio-temporal-autocorrelation-with-apache-flink)**
 
